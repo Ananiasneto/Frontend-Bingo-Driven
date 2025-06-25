@@ -1,8 +1,53 @@
-# React + Vite
+## 1. Criar uma network Docker (opcional)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Se quiser que seu frontend se comunique com outros containers (ex: backend), crie uma network Docker:
 
-Currently, two official plugins are available:
+```bash
+docker network create minha-network
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Construir a imagem do frontend
+
+No diretório do frontend (onde está o Dockerfile), execute:
+
+```bash
+docker build -t myfrontend .
+```
+
+---
+
+## 3. Executar o container do frontend
+
+```bash
+docker run -d \
+  --name NOMECONTAINER \
+  --network NOMENETWORK \
+  -p 3000:80 \
+  myfrontend
+```
+
+---
+
+# Rodar a aplicação com Docker Compose
+
+No terminal, no mesmo diretório do `docker-compose.yml`, execute:
+
+```bash
+docker compose up -d --build
+```
+
+
+## Parar a aplicação
+
+Para derrubar os containers criados pelo Compose:
+
+```bash
+docker compose down
+```
+
+## Considerações finais
+---
+
+- O backend ficará disponível em `http://localhost:3000`.
+
+---

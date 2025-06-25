@@ -48,6 +48,6 @@ docker compose down
 ## Considerações finais
 ---
 
-- O backend ficará disponível em `http://localhost:3000`.
+- O frontend ficará disponível em `http://localhost:3000`.
 
 ---

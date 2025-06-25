@@ -1,3 +1,7 @@
+## Link deploy :
+
+https://frontend-bingo-driven.vercel.app/
+
 ## 1. Criar uma network Docker (opcional)
 
 Se quiser que seu frontend se comunique com outros containers (ex: backend), crie uma network Docker:
